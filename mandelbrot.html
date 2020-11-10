@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>The Mandelbrot fractal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="focusOnSubmit();">
+<div id="description">
+    <header>
+        <div style="text-align: center;">
+            <hr/>
+            <h1>The Mandelbrot Set</h1>
+            <p class="headerText">In HTML5 Canvas and JavaScript</p>
+            <hr/>
+        </div>
+    </header>
+
+    <form action="javascript:draw(getColorPicker(), getSamples());" id="settingsForm">
+        <table>
+            <tr>
+                <td>Rendering time</td>
+                <td>
+                    <span id='renderTime'>0.0</span> seconds
+                </td>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td>
+                    <span id='renderSpeed'>0.00</span> pixels /
+                    <span id='renderSpeedUnit'>second</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Iterations</td>
+                <td>
+                    <input class="textInput" id="steps" size="4" type="text" value="50"/>
+                    <input checked="checked" id="autoIterations" type="checkbox"/>
+                    <small>auto</small></td>
+            </tr>
+            <tr>
+                <td>Escape radius</td>
+                <td><input class="textInput" id="escapeRadius" size="4"
+                           type="text" value="10.0"/></td>
+            </tr>
+            <tr>
+                <td>Color scheme</td>
+                <td>
+                    <select id="colorScheme">
+                        <option value="pickColorGrayscale">Grayscale #1</option>
+                        <option value="pickColorHSV1">HSV #1</option>
+                        <option value="pickColorHSV2">HSV #2 Red</option>
+                        <option value="pickColorHSV3">HSV #2 Blue</option>
+                        <option value="pickColorGrayscale2">Grayscale #2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Supersamples</td>
+                <td><input class="textInput" id="superSamples" size="4" type="text" value="1"/></td>
+            </tr>
+            <tr>
+                <td>Scanline update (ms)</td>
+                <td><input class="textInput" id="updateTimeout" size="4"
+                           type="text" value="200"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input id="submitButton" type="submit" value="Draw"/>
+                    &nbsp;
+                    <input id="resetButton" type="reset" value="Reset"/>
+                    &nbsp;
+                    <input id="viewPNG" type="button" value="View as PNG"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <hr/>
+
+    <div id="bottom">
+    </div>
+</div>
+
+<div id="canvasContainer">
+    <canvas height="0" id="canvasMandelbrot" width="0"></canvas>
+    <canvas height="0" id="canvasControls" width="0"></canvas>
+</div>
+
+<div id="infoBox">
+    <span id="infoText"></span>
+</div>
+
+<script src="mandelbrot.js" type="text/javascript">
+</script>
+</body>
+</html>
